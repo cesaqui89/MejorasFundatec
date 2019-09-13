@@ -18,11 +18,7 @@ and open the template in the editor.
 .content-right{
     max-height: 100vh;
     min-height: 100vh;
-    overflow-y: auto; 
-    
-}
-.content-right{
-  /* padding: 5px 10px 10px 30px; */
+    overflow-y: auto;   
 }
 .content-body{
     margin: 5px;

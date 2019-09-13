@@ -17,11 +17,15 @@
         <link rel="stylesheet" href="../../css/jquery-ui.min.css">
         <link rel="stylesheet" href="../../lib/alertifyjs/css/alertify.min.css">
         <link rel="stylesheet" href="../../lib/alertifyjs/css/myalertify.css">
-        <script src="../../js/jquery.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="../../css/dataTables.bootstrap.css"/>
+        <script src="../../js/jquery-1.12.3.js" type="text/javascript"></script>
         <script src="../../js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="../../js/popper.min.js" type="text/javascript"></script>        
         <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../js/bootstrap.bundle.min.js" type="text/javascript"></script>
         <script src="../../js/moment.js" type="text/javascript"></script>
         <script src="../../js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+        
         <script type="text/javascript" src="../../js/jquery.dataTables.min.js"></script>
         <script src="../../js/select2.min.js" type="text/javascript"></script>
         <script src="../../js/MensajeError.js" type="text/javascript"></script>

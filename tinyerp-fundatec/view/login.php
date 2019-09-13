@@ -9,6 +9,10 @@ and open the template in the editor.
         <title>Iniciar sesión</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../js/jquery-1.12.3.js" type="text/javascript"></script>
+        <script src="../../js/popper.min.js" type="text/javascript"></script>     
+        <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../js/bootstrap.bundle.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../../css/login.css">
@@ -16,7 +20,7 @@ and open the template in the editor.
     <body>
      	<div class="container-fluid">
           <div class="row">            
-            <div class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8">
+            <div class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8" style="margin: 0 auto; width:80%">
             <div class="logo">
               <img src="../../img/logoFUNDATEC.png" alt="">
             </div>
@@ -44,7 +48,6 @@ and open the template in the editor.
 
      	</div>
 
-        <script src="../../js/jquery.min.js" type="text/javascript"></script>
-        <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+
     </body>
 </html>

@@ -1,12 +1,10 @@
-<link href="../../../css/dataTables.bootstrap.css" rel="stylesheet" type="text/css"/>
 <script src="../../../js/assets/AssetsManagement.js" type="text/javascript"></script>
-<script type="text/javascript" src="../../../js/jquery.min.js"></script>
-<script type="text/javascript" src="../../../js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../../js/jquery.dataTables.min.js"></script>
 <script src="../../../js/general.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../../js/assets/jquery.maskMoney.js"></script>
 <script type="text/javascript" src="../../../js/assets/moment.js"></script>
-
+<link href="../../../css/circularFloatingButton.css" rel="stylesheet" type="text/css"/>
+<link href="../../../css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
 <?php
 
 /* 
@@ -20,8 +18,11 @@ require_once '../../../controller/Assets/AssetsController.php';
 <div class="page-header">
     <h1>Gestionar activos</h1>
 </div>
-<input type="button" id="addAsset" class="btn btn-success" value="Registrar activo" onclick="$(assetManagement.actions.fnButtonAddAsset());">
-<a class="btn-floating btn-lg btn-default"><i class="fas fa-bolt"></i></a>
+<div class="btn-float">
+        <button id="addAsset" type="button" class="btn btn-default btn-circle btn-xl btn-lateral"><i class="fa fa-plus"></i></button><br>
+</div>
+<!--<input type="button" id="addAsset" class="btn btn-success" value="Registrar activo" onclick="$(assetManagement.actions.fnButtonAddAsset());">-->
+
     <a id="btnRepair" href="index.php?action=consultRepairForm" class="btn btn-primary btnMenuPrincipal disabled" >Reparación</a>
     <a id="btnQuotation" href="index.php?action=consultQuotationForm" class="btn btn-primary btnMenuPrincipal" >Cotización</a>
     <a id="btnAssignment" href="index.php?action=listAssignment" class="btn btn-primary btnMenuPrincipal" >Asignación</a>
