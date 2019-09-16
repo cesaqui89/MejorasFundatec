@@ -10,129 +10,118 @@
         <title>FundaTEC</title>
         <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/estilos.css" />
+        <link rel="stylesheet" href="../../css/perfilUsuario.css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="../../js/index.js" type="text/javascript"></script>
     </head>
     <body>
         <header>
-            <div class="nav1">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid flex-container">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="#">
-                                <img src="../../img/menu/LogoFUNDATEC.png" class="logo">
-                            </a>
-                            <form class="navbar-form navbar-right">
-                                <div class="form-group">
-
-                                    <!--Botón Notificaciones-->
-
-                                    <div class="dropdown">
-                                        <button class="dropbtn">
-                                            <i  class="glyphicon glyphicon-bell"></i>
-                                        </button>
-                                        <!--<div id="myDropdown" class="dropdown-content">
-                                            <a href="#home">Home</a>
-                                            <a href="#about">About</a>
-                                            <a href="#contact">Contact</a>
-                                        </div>-->
+            <nav class="navbar navbar-top navbar-expand-md" id="navbar-main">
+                <div class="container-fluid">
+                    <a href="#">
+                        <img src="../../img/menu/LogoFUNDATEC.png" class="logo">
+                    </a>
+                <!--perfil usuario-->
+                <div id="perfilUsuario" class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <span class="avatar avatar-sm rounded-circle">
+                                    <img src="<?php echo Sesion::getAttr("imageProfile"); ?>" onError="this.src='../../img/user(100).png'">
+                                </span>
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold">
+                                        <p style="padding-top: 10px"><?php echo Sesion::getAttr("username"); ?></p>     
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-left">
+                           <div class="container">
+                           <div class="row">
+                                <div class="col-sm-12"> 
+                                    <a href="../examples/profile.html" class="dropdown-item">
+                                        <i  class="fa fa-bell"></i>
+                                        <span>Notificaciones</span>
+                                    </a>
+                                </div>    
+                           </div>
+                            <div class="dropdown-divider"></div>
+                            
+                                <?php 
+                                $contador = 0; 
+                                $temporal = 0;
+                                 foreach ($this->applications as $key => $value) {
+                                    if ($contador%3 == 0){ 
+                                        $temporal = $temporal +3 -1;
+                                ?>
+                                  <div class="row">
+                                <?php
+                                }
+                                ?>
+                                <div class="col-sm-4"> 
+                                    <a href="<?php echo $value->getURL();?>" class="dropdown-item">
+            <!--                        <i class="text-left <?php echo $value->getNameIcon();?>"></i>-->
+                                        <i class="fa fa-bomb"></i>
+                                        <span><?php echo $value->getApplicationName();?></span>
+                                    </a>
+                                </div>
+                                <?php 
+                                if (($contador)== $temporal){
+                                    ?></div><?php 
+                                    }
+                                    $contador = $contador + 1;
+                                }?> 
+                                <?php 
+                                if ($contador < $temporal){
+                                    ?>
                                     </div>
-
-                                    <!--Botón Aplicaciones-->
-
-                                    <div class="dropdown">
-                                        <button class="dropbtn" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="glyphicon glyphicon-th"></i>
-                                        </button>
-
-                                        <div class="dropdown-menu pull-right" aria-labelledby="dropdownMenuLink">
-
-                                            <ul class="gb_ia" aria-dropeffect="move" >
-                                                <?php foreach ($this->applications as $key => $value) { ?>
-                                                    <li class="icoLi" aria-grabbed="false" onclick="javascript: redireccionar('<?php echo $value->getApplicationId(); ?>', '<?php echo $value->getURL(); ?>');">
-                                                        <a class="cont_menu" href="<?php echo $value->getURL(); ?>">
-
-                                                            <div class="ICONO">
-                                                                <i class="material-icons"><?php echo $value->getNameIcon(); ?></i>
-                                                            </div>
-                                                            <span class="gb_3" <a href="<?php echo $value->getURL(); ?>"><?php echo $value->getApplicationName(); ?></a></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?> 
-                                                <li class="icoLi" aria-grabbed="false" href="http://sistemafundatec.tec.ac.cr:8080/cfmx/">
-                                                    <a class="cont_menu" href="http://sistemafundatec.tec.ac.cr:8080/cfmx/">
-
-                                                        <div class="ICONO">
-                                                            <i class="material-icons">&#xE85C;</i>
-                                                        </div>
-                                                        <span class="gb_3">ERP</span>
-                                                    </a>
-                                                </li>
-                                                <li class="icoLi" aria-grabbed="false" href="https://www.facturaelectronica.cr">
-                                                    <a class="cont_menu" href="https://www.facturaelectronica.cr">
-                                                        <div class="ICONO">
-                                                            <i class="material-icons">&#xE320;</i>
-                                                        </div>
-                                                        <span class="gb_3">Factura Electrónica</span>
-                                                    </a>
-                                                </li>
-                                                <li class="icoLi" aria-grabbed="false" href="https://www.inscribete.co.cr/fundatec/">
-                                                    <a class="cont_menu" href="https://www.inscribete.co.cr/fundatec/">
-
-                                                        <div class="ICONO">
-                                                            <i class="material-icons">&#xE3C9;</i>
-                                                        </div>
-                                                        <span class="gb_3">Inscríbete</span>
-                                                    </a>
-                                                </li>
-                                                <li class="icoLi" aria-grabbed="false" href="https://www.tec.ac.cr/fundatec">
-                                                    <a class="cont_menu" href="https://www.tec.ac.cr/fundatec" >
-
-                                                        <div class="ICONO">
-                                                            <i class="material-icons">&#xE80B;</i>
-                                                        </div>
-                                                        <span class="gb_3">Web</span>
-                                                    </a>
-                                                </li>
-                                                <li class="icoLi" aria-grabbed="false" href="https://www.outlook.com/owa/itcr.ac.cr">
-                                                    <a class="cont_menu" href="https://www.outlook.com/owa/itcr.ac.cr" style="text-align: center;">
-
-                                                        <div class="ICONO"><i class="material-icons">assessment</i></div>
-                                                        <span class="gb_3">Correo</span>
-
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <?php
+                                }
+                                ?>
+                                
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="http://sistemafundatec.tec.ac.cr:8080/cfmx/" class="dropdown-item col-sm-8">
+                                            <i class="fa fa-dashboard"></i>
+                                            <span>ERP</span>
+                                        </a>
                                     </div>
-                                   
-                                    <div class="dropdown">
-
-                                        <img data-toggle="dropdown" aria-expanded="true" class="avatar" src="<?php echo Sesion::getAttr("imageProfile"); ?>" onError="this.src='../../img/user.png'" alt="">           
-
-                                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
-                                            <li class="dropdown-header">
-                                                <div class="infouser">
-                                                    <img src="<?php echo Sesion::getAttr("imageProfile"); ?>" onError="this.src='../../img/user(100).png'">
-
-                                                    <p><?php echo Sesion::getAttr("username"); ?></p>           
-                                                </div>
-                                            </li>
-                                            <li> <a href="#">Mi cuenta</a></li>
-                                            <li role="separator" class="divider"></li>
-
-                                            <li ><a href="../sesion/">Cerrar sesión</a></li>
-
-                                        </ul>
+                                    <div class="col-sm-4">
+                                        <a href="https://www.facturaelectronica.cr" class="dropdown-item">
+                                            <i class="fa fa-tablet"></i>
+                                            <span>Factura Electrónica</span>
+                                        </a>
                                     </div>
-                                </div>  
-                            </form>
+                                    <div class="col-sm-4">
+                                        <a class="dropdown-item" href="https://www.inscribete.co.cr/fundatec/">
+                                            <i class="fa fa-institution"></i>
+                                            <span class="gb_3">Inscríbete</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">    
+                                        <a class="dropdown-item" href="https://www.tec.ac.cr/fundatec" >
+                                                <i class="fa fa-internet-explorer"></i>
+                                            <span>Web</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a class="dropdown-item" href="https://www.outlook.com/owa/itcr.ac.cr">
+                                            <i class="fa fa-mail-forward"></i>
+                                            <span>Correo</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="../sesion/" class="dropdown-item">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Cerrar sesión</span>
+                                </a>
+                            </div>    
                         </div>
                     </div>
-                    <div class="account d-flex">
-                        
-                    </div>
-                </nav>
+                </div>
+            </nav>
+            <div class="account d-flex" style="margin-bottom:10px;">    
             </div>
         </header>
 
